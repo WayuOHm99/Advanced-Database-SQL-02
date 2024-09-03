@@ -1,0 +1,13 @@
+SELECT last_name, salary,
+  CASE 
+    WHEN salary < 2000 THEN 0.00
+    WHEN salary < 4000 THEN 0.09
+    WHEN salary < 6000 THEN 0.20
+    WHEN salary < 8000 THEN 0.30
+    WHEN salary < 10000 THEN 0.40
+    WHEN salary < 12000 THEN 0.42
+    WHEN salary < 14000 THEN 0.44
+    ELSE 0.45
+  END AS TAX_RATE
+FROM employees
+WHERE department_id = 80;

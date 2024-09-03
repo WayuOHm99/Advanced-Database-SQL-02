@@ -1,0 +1,14 @@
+CREATE TABLE NEW_EMPLOYEES_V2 (
+    EMPLOYEE_ID INT,                                
+    FIRST_NAME VARCHAR(50),                         
+    LAST_NAME VARCHAR(50),                          
+    EMAIL VARCHAR(100),                             
+    PHONE_NUMBER VARCHAR(15),                       
+    HIRE_DATE DATE,                                 
+    JOB_ID VARCHAR(10),                             
+    SALARY DECIMAL(10, 2),                          
+    DEPARTMENT_ID INT,                              
+    
+    CONSTRAINT NEMP_EMP_ID_PK PRIMARY KEY (EMPLOYEE_ID),
+    CONSTRAINT NEMP_DEPT_ID_FK FOREIGN KEY (DEPARTMENT_ID) REFERENCES DEPARTMENTS(DEPARTMENT_ID)
+);

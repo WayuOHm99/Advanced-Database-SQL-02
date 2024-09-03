@@ -1,0 +1,6 @@
+SELECT employee_id AS ID, 
+       first_name || '_' || last_name AS Name,
+       TO_CHAR(hire_date, 'fmDDth "of" Month YYYY HH:MI:SS AM') AS Hiredate
+FROM employees
+WHERE hire_date >= TO_DATE('01-MAY-2003', 'DD-MON-YYYY')
+ORDER BY hire_date;

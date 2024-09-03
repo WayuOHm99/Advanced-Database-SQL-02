@@ -1,0 +1,21 @@
+SELECT 
+  department_id AS DEPARTMENT_ID, 
+  employee_id AS ID, 
+  first_name || ' ' || last_name AS Name, 
+  salary AS SALARY
+FROM 
+  (
+    SELECT 
+      department_id, 
+      employee_id, 
+      first_name, 
+      last_name, 
+      salary,
+      ROW_NUMBER() OVER (PARTITION BY department_id ORDER BY salary DESC) AS row_num
+    FROM 
+      employees
+  ) 
+WHERE 
+  row_num = 1
+ORDER BY 
+  department_id;
